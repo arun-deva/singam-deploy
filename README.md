@@ -7,7 +7,7 @@ Assumes that latest ui tgz files are in the ui-dist directory
 
 Pull down the docker compose file from github
 ```
-curl https://raw.githubusercontent.com/arun-deva/singam-deploy/master/docker-compose.yml
+curl https://raw.githubusercontent.com/arun-deva/singam-deploy/master/docker-compose.yml > /home/ec2-user/singam-deploy/docker-compose.yml
 ```
 
 ```

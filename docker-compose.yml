@@ -3,6 +3,6 @@ services:
   singam-nginx:
     image: arundeva/singam-nginx
     ports:
-      - "8888:80" #host:container
+      - "80:80" #host:container
   minesweeper:
     image: arundeva/minesweeper
