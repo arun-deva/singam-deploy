@@ -6,3 +6,5 @@ services:
       - "80:80" #host:container
   minesweeper:
     image: arundeva/minesweeper
+  aadupuli:
+    image: arundeva/aadupuli
