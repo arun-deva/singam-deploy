@@ -11,6 +11,8 @@ curl https://raw.githubusercontent.com/arun-deva/singam-deploy/master/docker-com
 ```
 
 ```
+docker-compose down
+docker-compose pull
 docker-compose up -d
 ```
 
