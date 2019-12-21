@@ -24,7 +24,7 @@ RUN rm -rf aadupuli-ui.tgz
 
 #Deploy landing page
 COPY index.html /usr/share/nginx/html
-COPY images /usr/share/nginx/images
+COPY images /usr/share/nginx/html/images
 
 # TODO Deploy Audio guessing game and associated resources
 #COPY AudioClipGuess.html /usr/share/nginx/html
