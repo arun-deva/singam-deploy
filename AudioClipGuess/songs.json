@@ -112,7 +112,7 @@
 {
     "name": "April Mayile",
     "path": "music/AprilMayile.mp3",
-    "segment": {"start": 100, "end": 108}
+    "segment": {"start": 100, "end": 115}
 },
 {
     "name": "Boopalam Isaikkum",
@@ -192,7 +192,7 @@
 {
     "name": "Senthoorappove",
     "path": "music/Senthoorappove.mp3",
-    "segment": {"start": 146, "end": 166}
+    "segment": {"start": 149, "end": 166}
 },
 {
     "name": "Sundari  Kannal",

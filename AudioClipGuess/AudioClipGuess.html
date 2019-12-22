@@ -1,90 +1,43 @@
-<html>
+<html lang="en">
     <head>
+        <title>Guess That Song</title>
+        <script src="song.js"></script>
         <script>
-            let curEventListener;
-            let curSong;
-            const segmentListener = () => {
-                const audio = document.getElementById("audioCtrl");
-                if (curSong.segment.end && audio.currentTime >= curSong.segment.end) {
-                    audio.pause();
-                }
-            };
-            /*const songs = [
-                {
-                    name: "Anjali Anjali",
-                    path: "music/AnjaliAnjali.mp3",
-                    segment: {start: 100, end: 108}
-                },
-                {
-                    name: "April Mayile",
-                    path: "music/AprilMayile.mp3",
-                    segment: {start: 100, end: 108}
-                }
-            ];*/
             let songs;
+
             const loadSongs = async () => {
                 const resp = await fetch("songs.json", {mode: 'no-cors'});
-                songs = await resp.json();
+                const songsJsonObj = await resp.json();
+                const audio = document.getElementById("audioCtrl");
+                songs = new Songs(songsJsonObj, audio);
                 changeSong();
             };
-            var loadSongsXhr = () => {
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', "songs.json", true);
-                xhr.responseType = 'json';
-                xhr.onload = function() {
-                  var status = xhr.status;
-                  if (status === 200) {
-                    songs = JSON.parse(xhr.response.text);
-                    changeSong();
-                  } else {
-                    alert("Failed to load songs! Status " + status);
-                  }
-                };
-                xhr.send();
-            };
+
             const playSegment = () => {
-                const audio = document.getElementById("audioCtrl");
-                audio.pause();
-                audio.currentTime = curSong.segment.start;
-                audio.addEventListener('timeupdate', segmentListener);
-                audio.play();
-            }
+                songs.playCurSong();
+            };
 
             const changeSong = () => {
-                const numSongs = songs.length;
-                const nextSongIdx = Math.floor(Math.random() * numSongs);
-                const audio = document.getElementById("audioCtrl");
-                curSong = songs[nextSongIdx];
-                console.log(`Selected song ${curSong.path}, url encoded to ${encodeURI(curSong.path)}`);
-                audio.src = encodeURI(curSong.path);
                 document.getElementById("answerDiv").innerHTML = "";
-                /*const playBtn = document.getElementById("playSegmentBtn");
-                curEventListener && playBtn.removeEventListener("click", curEventListener);
-                curEventListener = () => playSegment(songs[nextSong].segment.start, songs[nextSong].segment.end);
-                playBtn.addEventListener("click", playSegment);*/
-            }
+                songs.changeSong();
+            };
 
             const showAnswer = () => {
-                document.getElementById("answerDiv").innerHTML = "Answer: " + curSong.name;
-                const audio = document.getElementById("audioCtrl");
-                audio.removeEventListener('timeupdate', segmentListener);
+                document.getElementById("answerDiv").innerHTML = "Answer: " + songs.getCurSong().name;
             }
-            // document.getElementById("playSegmentBtn").addEventListener("click", playSegment);
         </script>
     </head>
     <body onload="loadSongs()">
         <audio id="audioCtrl" controls>
-            <!-- <source src="/data/dev/Music/AnjaliAnjali.mp3" type="audio/mpeg"/> -->
         </audio>
         <br>
         <br>
         <button id="playSegmentBtn" onclick="playSegment()">Play Segment</button>
         <br>
         <br>
-        <button id="changeSongBtn" onclick="showAnswer()">I give up!</button>
-        <p>
-            <div id="answerDiv"></div>
-        </p>
+        <button id="showAnswerBtn" onclick="showAnswer()">I give up!</button>
+        <p></p>
+        <div id="answerDiv"></div>
         <p>
             <button id="changeSongBtn" onclick="changeSong()">Gimme Another</button>
         </p>
