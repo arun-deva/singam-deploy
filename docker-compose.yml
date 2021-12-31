@@ -1,10 +1,14 @@
 version: '3'
 services:
   singam-nginx:
-    image: arundeva/singam-nginx
+    image: arundeva/singam-nginx:1.0.0
     ports:
       - "80:80" #host:container
   minesweeper:
     image: arundeva/minesweeper
   aadupuli:
-    image: arundeva/aadupuli
+    image: arundeva/aadupuli:0.6.0
+  aadu-puli-react:
+    image: arundeva/aadu-puli-react:0.6.0
+    ports:
+      - "8088:80"
