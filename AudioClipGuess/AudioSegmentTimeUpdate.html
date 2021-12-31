@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <script src="song.js"></script>
+        <script>
+            let songsToSegment;
+            let existingSongsJson;
+
+            const loadSongs = async () => {
+                existingSongsJson = await loadSongsFromFile("songs.json");
+                const songsToSegmentAsJson = await loadSongsFromFile("songsToSegment.json");
+                const audio = document.getElementById("audioCtrl");
+                songsToSegment = new Songs(songsToSegmentAsJson, audio);
+                nextSong();
+            };
+
+            const loadSongsFromFile = async (songsFile) => {
+                const resp = await fetch(songsFile, {mode: 'no-cors'});
+                const songsJsonObj = await resp.json();
+                return songsJsonObj;
+            };
+
+            const displaySong = () => {
+                document.getElementById("segStart").value = songsToSegment.getCurSong().segment.start;
+                document.getElementById("segEnd").value = songsToSegment.getCurSong().segment.end;
+                document.getElementById("nameDiv").innerHTML = songsToSegment.getCurSong().name;
+            };
+            const playSegment = () => {
+                songsToSegment.playCurSong();
+            };
+            const nextSong = () => {
+                songsToSegment.nextSong();
+                displaySong();
+            };
+            const prevSong = () => {
+                songsToSegment.prevSong();
+                displaySong();
+            };
+            const updateSegmentTimes = () => {
+                const start = document.getElementById("segStart").value;
+                const end = document.getElementById("segEnd").value;
+                songsToSegment.getCurSong().updateSegmentTimes(start, end);
+            };
+            const deleteSong = () => {
+                songsToSegment.deleteCurSong();
+                displaySong();
+            };
+            const exportSongs = () => {
+                const mergedSongsJson = mergeSongs(songsToSegment.songs, existingSongsJson);
+                console.log(JSON.stringify(mergedSongsJson, null, 2));
+            };
+            const mergeSongs = (segmentedSongsJson, existingSongsJson) => {
+                //TODO Move this merge operation to a backend such as Express
+                const existingSongNames = existingSongsJson.map(song => song.name);
+                const songsToAdd = segmentedSongsJson
+                    .filter(song =>
+                        !existingSongNames.includes(song.name)
+                        && song.segment.start !== song.segment.end);
+                return existingSongsJson.concat(songsToAdd);
+            };
+        </script>
+    </head>
+    <body onload="loadSongs()">
+        <audio id="audioCtrl" controls></audio>
+        <br>
+        <div id="nameDiv"></div>
+        <br>
+        Segment Start: <input type="text" id="segStart">
+        <br>
+        Segment End: <input type="text" id="segEnd">
+        <button id="updateBtn" onclick="updateSegmentTimes()">Update Segment</button>
+        <button id="playSegmentBtn" onclick="playSegment()">Play Segment</button>
+        <br>
+        <button id="delSongBtn" onclick="deleteSong()">Delete this song</button>
+        <br>
+        <button id="nextSongBtn" onclick="nextSong()">Next Song</button>
+        <button id="prevSongBtn" onclick="prevSong()">Prev Song</button>
+        <br>
+        <br>
+        <button id="exportSongs" onclick="exportSongs()">Export Songs to Console</button>
+    </body>
+</html>

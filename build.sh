@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=1.0.0
+VERSION=1.0.1
 docker build -t singam-nginx:$VERSION .
 
 if [ $? -ne 0 ]; then

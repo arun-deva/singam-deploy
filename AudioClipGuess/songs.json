@@ -1,222 +1,386 @@
 [
-{
+  {
     "name": "01  Vaa  Vaa  Anbe",
     "path": "music/01 Vaa Vaa Anbe.mp3",
-    "segment": {"start": 62, "end": 85}
-},
-{
+    "segment": {
+      "start": 62,
+      "end": 85
+    }
+  },
+  {
     "name": "03 illamai itho itho",
     "path": "music/03 illamai itho itho.mp3",
-    "segment": {"start": 83, "end": 92}
-},
-{
+    "segment": {
+      "start": 83,
+      "end": 92
+    }
+  },
+  {
     "name": "03. Katrin Mozhi",
     "path": "music/03.KatrinMozhi.mp3",
-    "segment": {"start": 116, "end": 128}
-},
-{
+    "segment": {
+      "start": 116,
+      "end": 128
+    }
+  },
+  {
     "name": "05 varuthu varuthu",
     "path": "music/05 varuthu varuthu.mp3",
-    "segment": {"start": 0, "end": 17}
-},
-{
+    "segment": {
+      "start": 0,
+      "end": 17
+    }
+  },
+  {
     "name": "06  Poohtu  Vaitha",
     "path": "music/06 Poohtu Vaitha.mp3",
-    "segment": {"start": 0, "end": 20}
-},
-{
+    "segment": {
+      "start": 0,
+      "end": 20
+    }
+  },
+  {
     "name": "06  Thoongadha",
     "path": "music/06 Thoongadha.mp3",
-    "segment": {"start": 54, "end": 73}
-},
-{
+    "segment": {
+      "start": 54,
+      "end": 73
+    }
+  },
+  {
     "name": "07  Annathai  Aadurar",
     "path": "music/07 Annathai Aadurar.mp3",
-    "segment": {"start": 69, "end": 90}
-},
-{
+    "segment": {
+      "start": 69,
+      "end": 90
+    }
+  },
+  {
     "name": "07  Ingi  Eduppalaghe",
     "path": "music/07 Ingi Eduppalaghe.mp3",
-    "segment": {"start": 60, "end": 72}
-},
-{
+    "segment": {
+      "start": 60,
+      "end": 72
+    }
+  },
+  {
     "name": "08  Kalyana  Thaen  Nila",
     "path": "music/08 Kalyana Thaen Nila.mp3",
-    "segment": {"start": 67, "end": 82}
-},
-{
+    "segment": {
+      "start": 67,
+      "end": 82
+    }
+  },
+  {
     "name": "08  Unnai  Ninachi  Pattu",
     "path": "music/08 Unnai Ninachi Pattu.mp3",
-    "segment": {"start": 22, "end": 33}
-},
-{
+    "segment": {
+      "start": 22,
+      "end": 30
+    }
+  },
+  {
     "name": "09  Raja  Keyya  Vaicha",
     "path": "music/09 Raja Keyya Vaicha.mp3",
-    "segment": {"start": 105, "end": 130}
-},
-{
+    "segment": {
+      "start": 105,
+      "end": 130
+    }
+  },
+  {
     "name": "11  Then  Pandi  Seemayeelae",
     "path": "music/11 Then Pandi Seemayeelae.mp3",
-    "segment": {"start": 81, "end": 97}
-},
-{
+    "segment": {
+      "start": 81,
+      "end": 87
+    }
+  },
+  {
     "name": "Aahaya gangai",
     "path": "music/Aahaya gangai.mp3",
-    "segment": {"start": 99, "end": 107}
-},
-{
+    "segment": {
+      "start": 99,
+      "end": 107
+    }
+  },
+  {
     "name": "Aayiram  Malargalae",
     "path": "music/Aayiram Malargalae.mp3",
-    "segment": {"start": 94, "end": 108}
-},
-{
+    "segment": {
+      "start": 94,
+      "end": 108
+    }
+  },
+  {
     "name": "Aayiram  Thaamarai",
     "path": "music/Aayiram Thaamarai.mp3",
-    "segment": {"start": 174, "end": 190}
-},
-{
+    "segment": {
+      "start": 174,
+      "end": 190
+    }
+  },
+  {
     "name": "Adi  Aathaadi",
     "path": "music/Adi Aathaadi.mp3",
-    "segment": {"start": 73, "end": 90}
-},
-{
+    "segment": {
+      "start": 73,
+      "end": 90
+    }
+  },
+  {
     "name": "Alibaabavum40 Thirudargalum- Maasila",
     "path": "music/Alibaabavum40Thirudargalum-Maasila.mp3",
-    "segment": {"start": 0, "end": 14}
-},
-{
+    "segment": {
+      "start": 0,
+      "end": 14
+    }
+  },
+  {
     "name": "Amaidhiyana- Andavan Kattalai",
     "path": "music/Amaidhiyana-AndavanKattalai.mp3",
-    "segment": {"start": 55, "end": 80}
-},
-{
+    "segment": {
+      "start": 55,
+      "end": 80
+    }
+  },
+  {
     "name": "Amma  Azhage",
     "path": "music/Amma Azhage.mp3",
-    "segment": {"start": 25, "end": 38}
-},
-{
+    "segment": {
+      "start": 25,
+      "end": 38
+    }
+  },
+  {
     "name": "Anandha Ragam",
     "path": "music/AnandhaRagam.mp3",
-    "segment": {"start": 59, "end": 78}
-},
-{
+    "segment": {
+      "start": 59,
+      "end": 78
+    }
+  },
+  {
     "name": "Anbesivam",
     "path": "music/Anbesivam.mp3",
-    "segment": {"start": 109, "end": 127}
-},
-{
+    "segment": {
+      "start": 109,
+      "end": 127
+    }
+  },
+  {
     "name": "Anjali Anjali",
     "path": "music/AnjaliAnjali.mp3",
-    "segment": {"start": 100, "end": 108}
-},
-{
+    "segment": {
+      "start": 100,
+      "end": 108
+    }
+  },
+  {
     "name": "April Mayile",
     "path": "music/AprilMayile.mp3",
-    "segment": {"start": 100, "end": 115}
-},
-{
+    "segment": {
+      "start": 100,
+      "end": 115
+    }
+  },
+  {
     "name": "Boopalam Isaikkum",
     "path": "music/BoopalamIsaikkum.mp3",
-    "segment": {"start": 0, "end": 15}
-},
-{
+    "segment": {
+      "start": 0,
+      "end": 15
+    }
+  },
+  {
     "name": "Edho  Moham",
     "path": "music/Edho Moham.mp3",
-    "segment": {"start": 0, "end": 18}
-},
-{
+    "segment": {
+      "start": 0,
+      "end": 18
+    }
+  },
+  {
     "name": "Idhazhil Kadai- Unnal Mudiyum Thambi C E",
     "path": "music/IdhazhilKadai-UnnalMudiyumThambiCE.mp3",
-    "segment": {"start": 91, "end": 106}
-},
-{
+    "segment": {
+      "start": 91,
+      "end": 106
+    }
+  },
+  {
     "name": "Iru Paravaigal",
     "path": "music/IruParavaigal.mp3",
-    "segment": {"start": 20, "end": 35}
-},
-{
+    "segment": {
+      "start": 20,
+      "end": 35
+    }
+  },
+  {
     "name": "Kadhalin Dheepamm",
     "path": "music/KadhalinDheepamm.mp3",
-    "segment": {"start": 67, "end": 78}
-},
-{
+    "segment": {
+      "start": 67,
+      "end": 78
+    }
+  },
+  {
     "name": "Kanmaniyae  Kaadhal  Enbathu",
     "path": "music/Kanmaniyae Kaadhal Enbathu.mp3",
-    "segment": {"start": 65, "end": 78}
-},
-{
+    "segment": {
+      "start": 65,
+      "end": 78
+    }
+  },
+  {
     "name": "m Egam E_m Egam E",
     "path": "music/mEgamE_mEgamE.mp3",
-    "segment": {"start": 92, "end": 102}
-},
-{
+    "segment": {
+      "start": 92,
+      "end": 102
+    }
+  },
+  {
     "name": "Nee  Oru  Kathal  Sangeetham",
     "path": "music/Nee Oru Kathal Sangeetham.mp3",
-    "segment": {"start": 63, "end": 78}
-},
-{
+    "segment": {
+      "start": 63,
+      "end": 78
+    }
+  },
+  {
     "name": "Nee Pathi",
     "path": "music/NeePathi.mp3",
-    "segment": {"start": 0, "end": 15}
-},
-{
+    "segment": {
+      "start": 0,
+      "end": 15
+    }
+  },
+  {
     "name": "Nenjukkul Peidhidum",
     "path": "music/NenjukkulPeidhidum.mp3",
-    "segment": {"start": 94, "end": 110}
-},
-{
+    "segment": {
+      "start": 94,
+      "end": 110
+    }
+  },
+  {
     "name": "Oorai  Therinjukitten",
     "path": "music/Oorai Therinjukitten.mp3",
-    "segment": {"start": 66, "end": 83}
-},
-{
+    "segment": {
+      "start": 66,
+      "end": 83
+    }
+  },
+  {
     "name": "Ore  Naal  Unnai  Naan",
     "path": "music/Ore Naal Unnai Naan.mp3",
-    "segment": {"start": 121, "end": 132}
-},
-{
+    "segment": {
+      "start": 121,
+      "end": 132
+    }
+  },
+  {
     "name": "Oru Naal Unnodu",
     "path": "music/OruNaalUnnodu.mp3",
-    "segment": {"start": 50, "end": 58}
-},
-{
+    "segment": {
+      "start": 50,
+      "end": 58
+    }
+  },
+  {
     "name": "Oru Poongavanam",
     "path": "music/OruPoongavanam.mp3",
-    "segment": {"start": 76, "end": 100}
-},
-{
+    "segment": {
+      "start": 76,
+      "end": 100
+    }
+  },
+  {
     "name": "Panivizhum",
     "path": "music/Panivizhum.mp3",
-    "segment": {"start": 86, "end": 100}
-},
-{
+    "segment": {
+      "start": 86,
+      "end": 100
+    }
+  },
+  {
     "name": "Senthoorappove",
     "path": "music/Senthoorappove.mp3",
-    "segment": {"start": 149, "end": 166}
-},
-{
+    "segment": {
+      "start": 149,
+      "end": 166
+    }
+  },
+  {
     "name": "Sundari  Kannal",
     "path": "music/Sundari Kannal.mp3",
-    "segment": {"start": 143, "end": 153}
-},
-{
+    "segment": {
+      "start": 143,
+      "end": 153
+    }
+  },
+  {
     "name": "Thakita Thathimi",
     "path": "music/ThakitaThathimi.mp3",
-    "segment": {"start": 76, "end": 85}
-},
-{
+    "segment": {
+      "start": 76,
+      "end": 85
+    }
+  },
+  {
     "name": "Thaniye Thannathaniye",
     "path": "music/ThaniyeThannathaniye.mp3",
-    "segment": {"start": 206, "end": 219}
-},
-{
+    "segment": {
+      "start": 206,
+      "end": 219
+    }
+  },
+  {
     "name": "Uravenum Pudhiya",
     "path": "music/UravenumPudhiya.mp3",
-    "segment": {"start": 99, "end": 122}
-},
-{
+    "segment": {
+      "start": 99,
+      "end": 122
+    }
+  },
+  {
     "name": "Uyirin Uyire",
     "path": "music/UyirinUyire.mp3",
-    "segment": {"start": 113, "end": 133}
-}
+    "segment": {
+      "start": 113,
+      "end": 133
+    }
+  },
+  {
+    "name": "aalapol_velapol",
+    "path": "unsegmented/aalapol_velapol.mp3",
+    "segment": {
+      "start": "5",
+      "end": "16"
+    }
+  },
+  {
+    "name": "akkadanu_nanga",
+    "path": "unsegmented/akkadanu_nanga.mp3",
+    "segment": {
+      "start": "0",
+      "end": "15"
+    }
+  },
+  {
+    "name": "andha_arabikkadaloram",
+    "path": "unsegmented/andha_arabikkadaloram.mp3",
+    "segment": {
+      "start": "22",
+      "end": "42"
+    }
+  },
+  {
+    "name": "andhi_mazhai",
+    "path": "unsegmented/andhi_mazhai.mp3",
+    "segment": {
+      "start": "72",
+      "end": "90"
+    }
+  }
 ]

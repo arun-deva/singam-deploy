@@ -16,7 +16,6 @@ class Song {
     playSegment(audioCtrl) {
         console.log(`Playing segment from ${this.segment.start} to ${this.segment.end}`);
         audioCtrl.pause();
-        audioCtrl.currentTime = this.segment.start;
 
         // replace the oncanplaythrough listener by assigning it - using addEventListener causes a lot of problems
         // since corresponding removeEventListener doesn't always appear to remove it
@@ -25,12 +24,19 @@ class Song {
             audioCtrl.ontimeupdate = () => this.segmentListener(audioCtrl);
             audioCtrl.play();
         };
+
+        audioCtrl.currentTime = this.segment.start;
     }
 
     reset(audioCtrl) {
         console.log(`Removing event listener for song ${this.name}`);
         audioCtrl.ontimeupdate = null;
         audioCtrl.oncanplaythrough = null;
+    }
+
+    updateSegmentTimes(start, end) {
+        this.segment.start = start;
+        this.segment.end = end;
     }
 }
 
@@ -46,6 +52,7 @@ class Songs {
         this.songs = [];
         this.recentSongIndices = [];
         this.curSong = null;
+        this.curSongIdx = -1;
         this.audioCtrl = audioCtrl;
         songsAsJson.forEach((songJson => this.songs.push(new Song(songJson.name, songJson.path,
             new Segment(songJson.segment.start, songJson.segment.end)))));
@@ -61,23 +68,70 @@ class Songs {
             nextSongIdx = Math.floor(Math.random() * numSongs);
         } while (this.recentSongIndices.includes(nextSongIdx));
         this.recentSongIndices.push(nextSongIdx);
-        return this.songs[nextSongIdx];
+
+        return nextSongIdx;
     }
 
     changeSong() {
         this.audioCtrl.pause();
         this.curSong && this.curSong.reset(this.audioCtrl);
-        this.curSong = this.getRandomSong();
+        const nextSongIdx = this.getRandomSong();
+        this.curSongIdx = nextSongIdx;
+        this.loadSongFromCurIdx();
+    }
+
+    nextSong() {
+        this.audioCtrl.pause();
+        this.curSong && this.curSong.reset(this.audioCtrl);
+        if (this.curSongIdx === this.songs.length - 1) {
+            console.log("Reached last song");
+            return;
+        }
+        this.curSongIdx++;
+        this.loadSongFromCurIdx();
+    }
+
+    prevSong() {
+        this.audioCtrl.pause();
+        this.curSong && this.curSong.reset(this.audioCtrl);
+        if (this.curSongIdx === 0) {
+            console.log("Reached first song");
+            return;
+        }
+        this.curSongIdx--;
+        this.loadSongFromCurIdx();
+    }
+
+    loadSongFromCurIdx() {
+        this.curSong = this.songs[this.curSongIdx];
         console.log(`Selected song ${this.curSong.path}, url encoded to ${encodeURI(this.curSong.path)}`);
         this.audioCtrl.src = encodeURI(this.curSong.path);
         this.audioCtrl.load();
     }
 
+    deleteCurSong() {
+        this.audioCtrl.pause();
+        if (!this.curSong) {
+            return;
+        }
+        this.curSong.reset(this.audioCtrl);
+        this.songs.splice(this.curSongIdx, 1);
+
+        // if we deleted the last song, adjust curSongIdx, otherwise curSongIdx will be
+        // automatically at next song
+        if (this.curSongIdx >= this.songs.length) {
+            this.curSongIdx = this.songs.length - 1;
+        }
+        this.loadSongFromCurIdx();
+    }
     getCurSong() {
         return this.curSong;
     }
 
     playCurSong() {
         this.curSong && this.curSong.playSegment(this.audioCtrl);
+    }
+    toJSON() {
+        return JSON.stringify(this.songs);
     }
 }
