@@ -1,0 +1,112 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: minesweeper
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: minesweeper
+  namespace: minesweeper
+  labels:
+    app: minesweeper
+spec:
+  type: ClusterIP
+  selector:
+    app: minesweeper
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minesweeper
+  namespace: minesweeper
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /minesweeper/api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: minesweeper
+                port:
+                  number: 8080
+          - path: /minesweeper(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: minesweeper-ui
+                port:
+                  number: 80
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: minesweeper
+  namespace: minesweeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minesweeper
+  template:
+    metadata:
+      labels:
+        app: minesweeper
+    spec:
+      containers:
+        - image: arundeva/minesweeper:0.2.0
+          imagePullPolicy: IfNotPresent
+          name: minesweeper
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: minesweeper-ui
+  namespace: minesweeper
+  labels:
+    app: minesweeper-ui
+spec:
+  type: ClusterIP
+  selector:
+    app: minesweeper-ui
+  ports:
+    - port: 80
+      targetPort: 80
+      name: http
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: minesweeper-ui
+  namespace: minesweeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minesweeper-ui
+  template:
+    metadata:
+      labels:
+        app: minesweeper-ui
+    spec:
+      containers:
+        - image: arundeva/minesweeper-ui:0.2.0
+          imagePullPolicy: IfNotPresent
+          name: minesweeper-ui
+          ports:
+            - containerPort: 80
+              protocol: TCP

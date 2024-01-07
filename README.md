@@ -3,6 +3,15 @@ Assumes that latest ui tgz files are in the ui-dist directory
 
 ```./build.sh```
 
+## Kubernetes Deploy (local)
+```
+minikube start
+minikube addons enable ingress
+kubectl apply -f k8s/landing-page.yaml
+kubectl apply -f k8s/minesweeper.yaml
+kubectl apply -f k8s/aadupuli.yaml
+kubectl apply -f k8s/guess-that-song.yaml
+```
 ## Deploy (on destination instance)
 
 Pull down the docker compose file from github
