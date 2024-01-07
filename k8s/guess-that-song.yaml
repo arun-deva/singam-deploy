@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: guess-that-song
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: guess-that-song
+  namespace: guess-that-song
+  labels:
+    app: guess-that-song
+spec:
+  type: ClusterIP
+  selector:
+    app: guess-that-song
+  ports:
+  - port: 80
+    targetPort: 80
+    name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: guess-that-song
+  namespace: guess-that-song
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /guess-that-song(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: guess-that-song
+                port:
+                  number: 80
+---
+
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: guess-that-song
+  namespace: guess-that-song
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guess-that-song
+  template:
+    metadata:
+      labels:
+        app: guess-that-song
+    spec:
+      containers:
+        - image: arundeva/guess-that-song:1.0.0
+          imagePullPolicy: IfNotPresent
+          name: guess-that-song
+          ports:
+            - containerPort: 80
+              protocol: TCP
