@@ -57,7 +57,7 @@ spec:
         app: guess-that-song
     spec:
       containers:
-        - image: arundeva/guess-that-song:1.0.0
+        - image: arundeva/guess-that-song:1.0.3
           imagePullPolicy: IfNotPresent
           name: guess-that-song
           ports:
